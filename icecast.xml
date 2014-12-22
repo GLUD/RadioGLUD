@@ -1,0 +1,71 @@
+<icecast>
+     <!-- LIMITS -->
+     <limits>
+       <clients>100</clients>
+       <sources>2</sources>
+       <threadpool>5</threadpool>
+       <queue-size>524288</queue-size>
+       <client-timeout>30</client-timeout>
+       <header-timeout>15</header-timeout>
+       <source-timeout>10</source-timeout>
+       <burst-on-connect>1</burst-on-connect>
+       <burst-size>65535</burst-size>
+     </limits>
+   
+     <!-- GENRIC -->
+     <authentication>
+       <source-password>password</source-password>
+       <admin-user>user</admin-user>
+       <admin-password>password</admin-password>
+     </authentication>
+     <hostname>localhost</hostname>
+     <listen-socket>
+       <port>8000</port>
+     </listen-socket>
+     <!--
+     <listen-socket>
+        <port>8000</port>
+        <bind-address>10.20.232.31</bind-address>
+     </listen-socket>
+     -->
+
+     <mount>
+        <mount-name>/radioglud.ogg</mount-name>
+        <username>user</username>
+        <password>password</password>
+        <max-listeners>1</max-listeners>
+	<!--<dump-file>/tmp/dump-example1.ogg<dump-file>
+        <fallback-mount>example2.ogg<fallback-mount>-->
+    </mount>
+    
+     <fileserve>1</fileserve>
+   
+     <!-- PATHES -->
+     <paths>
+       <basedir>/opt/icecast/latest/share/icecast</basedir>
+       <webroot>/opt/icecast/latest/share/icecast/web</webroot>
+       <adminroot>/opt/icecast/latest/share/icecast/admin</adminroot>
+       <logdir>/var/log/icecast</logdir>
+       <pidfile>/var/run/icecast/icecast.pid</pidfile>
+       <alias source="/" dest="/status.xsl"/>
+     </paths>
+   
+     <!-- LOG -->
+     <logging>
+       <accesslog>access.log</accesslog>
+       <errorlog>error.log</errorlog>
+       <playlistlog>playlist.log</playlistlog>
+       <loglevel>4</loglevel>
+       <logsize>10000</logsize>
+       <logarchive>1</logarchive>
+     </logging>
+   
+     <!-- SECURITY -->
+     <security>
+       <chroot>0</chroot>
+       <changeowner>
+         <user>icecast</user>
+         <group>icecast</group>
+       </changeowner>
+     </security>
+</icecast>
